@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R6BJe7dBXVpqz38o0y6jXx+4+OGVEsZVRHppv3ic9796u9PnMg17nI222T1zY5qNVWXZ7WQA6qMAEyRMIcyvDQ==",
+  "dgSpecHash": "amQsW/pOI7pje/f0oH3Q/rrCWw5ZfASYjzQGwQC/e2v5PAjx5FfqyuR9MBrXW0Bu57CDo1nuoJM5KgzM/h3OCQ==",
   "success": true,
-  "projectFilePath": "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
+  "projectFilePath": "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\djones3\\.nuget\\packages\\identitymodel\\4.3.0\\identitymodel.4.3.0.nupkg.sha512",
     "C:\\Users\\djones3\\.nuget\\packages\\identityserver4\\4.0.0\\identityserver4.4.0.0.nupkg.sha512",

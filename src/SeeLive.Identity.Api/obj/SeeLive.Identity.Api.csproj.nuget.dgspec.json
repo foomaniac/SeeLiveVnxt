@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj": {}
+    "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj": {}
   },
   "projects": {
-    "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj": {
+    "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
+        "projectUniqueName": "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
         "projectName": "SeeLive.Identity.Api",
-        "projectPath": "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
+        "projectPath": "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\SeeLive.Identity.Api.csproj",
         "packagesPath": "C:\\Users\\djones3\\.nuget\\packages\\",
-        "outputPath": "c:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\obj\\",
+        "outputPath": "C:\\PersonalRepos\\SeeLiveVNxt\\src\\SeeLive.Identity.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
