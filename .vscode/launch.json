@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "SeeLive.Identity.TestClient",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/SeeLive.Identity.TestClient/bin/Debug/netcoreapp3.1/SeeLive.Identity.TestClient.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
             "name": "SeeLive.Application.Api",
             "type": "coreclr",
             "request": "launch",
@@ -57,10 +68,11 @@
     ],
     "compounds": [
         {
-            "name": "SeeLive Identity & Application Apis",
+            "name": "SeeLive Identity & Application Apis with TestClient",
             "configurations": [
                 "SeeLive.Application.Api",
-                "SeeLive.Identity.Api"
+                "SeeLive.Identity.Api",
+                "SeeLive.Identity.TestClient"
             ]
         }
     ]
