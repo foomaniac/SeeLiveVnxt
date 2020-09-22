@@ -5,6 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "SeeLive.Presentation.Web",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/SeeLive.Presentation.Web/bin/Debug/netcoreapp3.1/SeeLive.Presentation.Web.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/SeeLive.Presentation.Web",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:4000"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
             "name": "SeeLive.Identity.TestClient",
             "type": "coreclr",
             "request": "launch",
@@ -68,11 +89,12 @@
     ],
     "compounds": [
         {
-            "name": "SeeLive Identity & Application Apis with TestClient",
+            "name": "SeeLive UI with APIs",
             "configurations": [
                 "SeeLive.Application.Api",
                 "SeeLive.Identity.Api",
-                "SeeLive.Identity.TestClient"
+                "SeeLive.Identity.TestClient",
+                "SeeLive.Presentation.Web",
             ]
         }
     ]
