@@ -39,7 +39,7 @@ namespace SeeLive.Identity.TestClient
             var apiClient = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client.GetAsync("http://localhost:5001/identity");
+            var response = await client.GetAsync("https://localhost:6000/identity");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);

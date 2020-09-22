@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace SeeLive.Application.Api
 {
@@ -20,11 +21,21 @@ namespace SeeLive.Application.Api
 
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
            {
-               options.Authority = "http://localhost:5000";
-               options.RequireHttpsMetadata = false;
-
-               options.Audience = "SeeLive.Application.Api";
+               options.Authority = "https://localhost:5000";
+               options.TokenValidationParameters = new TokenValidationParameters
+               {
+                   ValidateAudience = false
+               };
            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("SeeLive.Application.Api", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "SeeLive.Application.Api");
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +53,8 @@ namespace SeeLive.Application.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                      .RequireAuthorization("SeeLive.Application.Api");
             });
         }
     }
