@@ -1,18 +1,12 @@
 <template>
   <nav
-    class="navbar is-dark"
+    class="navbar is-dark level"
     role="navigation"
     aria-label="main navigation"
   >
     <div class="navbar-brand">
-      <a
-        class="navbar-item"
-        href="/"
-      >
-        <img
-          src="../assets/master_logo.png"
-          alt="SeeLive"
-        />
+      <a class="navbar-item" href="/">
+        <img src="../../assets/master_logo.png" alt="SeeLive" />
       </a>
 
       <a
@@ -27,7 +21,6 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-
     <div class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item">
@@ -36,17 +29,6 @@
       </div>
     </div>
   </nav>
-  <!-- <b-navbar>
-    <template v-slot:brand>
-      <b-navbar-item tag="router-link" :to="{ path: '/' }">
-        <b-image
-         
-          alt="seeLive"
-          :rounded="rounded"
-        ></b-image>
-      </b-navbar-item>
-    </template>
-  </b-navbar> -->
 </template>
 
 <script>

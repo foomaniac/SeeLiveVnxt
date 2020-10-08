@@ -1,11 +1,13 @@
 <template>
-  <Navigation />
-  <HomeHero />
+  <section class="section">
+    <Navigation />
+    <HomeHero />
+  </section>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
-import HomeHero from "./components/HomeHero.vue";
+import Navigation from "./components/layout/Navigation.vue";
+import HomeHero from "./components/layout/HomeHero.vue";
 export default {
   name: "App",
   components: {
