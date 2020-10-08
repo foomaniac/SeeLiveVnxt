@@ -1,14 +1,16 @@
 <template>
   <Navigation />
+  <HomeHero />
 </template>
 
 <script>
 import Navigation from "./components/Navigation.vue";
-
+import HomeHero from "./components/HomeHero.vue";
 export default {
   name: "App",
   components: {
     Navigation,
+    HomeHero,
   },
 };
 </script>
