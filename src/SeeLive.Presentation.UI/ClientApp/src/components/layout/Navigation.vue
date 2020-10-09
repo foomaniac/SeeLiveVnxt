@@ -5,8 +5,11 @@
     aria-label="main navigation"
   >
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">
-        <img src="../../assets/master_logo.png" alt="SeeLive" />
+      <a
+        class="navbar-item"
+        href="/"
+      >
+
       </a>
 
       <a
