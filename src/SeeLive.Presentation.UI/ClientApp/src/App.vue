@@ -4,10 +4,7 @@
       <Header />
       <Navigation />
     </div>
-    <div
-      id="body"
-      class="section"
-    >
+    <div id="body">
       <HomeHero />
     </div>
   </div>
@@ -46,5 +43,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.primary-font-hlight {
+  color: #ff006b;
+}
+
+.secondary-font-hlight {
+  color: #ffdb00;
 }
 </style>
