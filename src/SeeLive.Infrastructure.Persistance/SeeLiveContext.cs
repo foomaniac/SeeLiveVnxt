@@ -6,5 +6,7 @@ namespace SeeLive.Infrastructure.Persistance
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSql();
+
+        public DbSet<Artist> Artists {get; set;}
     }
 }
