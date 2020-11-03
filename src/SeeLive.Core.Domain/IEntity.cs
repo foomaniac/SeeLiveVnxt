@@ -13,7 +13,7 @@ namespace SeeLive.Core.Domain
 
         public DateTime? DateModified { get; set; }
 
-        public DateTime? DateDeleted { get; set; }
+        public DateTime? DateArchived { get; set; }
 
         public string CreatedByUser { get; set; }
     }

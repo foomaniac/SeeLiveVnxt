@@ -8,11 +8,11 @@ using System.Text;
 
 namespace SeeLive.Infrastructure.Persistance.Configurations
 {
-    public class ArtistConfiguration : IEntityTypeConfiguration<Artist>
+    public class EventListingConfiguration : IEntityTypeConfiguration<EventListing>
     {
-        public void Configure(EntityTypeBuilder<Artist> builder)
+        public void Configure(EntityTypeBuilder<EventListing> builder)
         {
-            builder.HasKey(artist => artist.Id);
+            builder.HasKey(eventListing => eventListing.Id);
 
             builder
                 .Property(e => e.Id)
@@ -20,26 +20,35 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
                 .HasColumnType("int")
                 .IsRequired();
 
-            builder.Property(artist => artist.Name)
-                .HasColumnName(nameof(Artist.Name))
-                .HasColumnType("nvarchar(256)")
-                .IsRequired();
+            builder
+             .HasOne(e => e.Event)
+             .WithMany(e => e.EventListings)
+             .HasForeignKey(e => e.EventId)
+             .IsRequired();
 
-            builder.Property(artist => artist.Bio)
-                .HasColumnName(nameof(Artist.Bio))
-                .HasColumnType("nvarchar(max)")
-                .IsRequired(false);
+            builder
+             .HasOne(e => e.Artist)
+             .WithMany(e => e.EventListings)
+             .HasForeignKey(e => e.ArtistId)
+             .IsRequired();
 
+            builder
+             .HasOne(e => e.Venue)
+             .WithMany(e => e.EventListings)
+             .HasForeignKey(e => e.VenueId)
+             .IsRequired();
 
-            builder.Property(artist => artist.City)
-                .HasColumnName(nameof(Artist.City))
-                .HasColumnType("nvarchar(256)")
-                .IsRequired();
+            builder
+                 .Property(e => e.StartTime)
+                 .HasColumnName(nameof(EventListing.StartTime))
+                 .HasColumnType("datetime2")
+                 .IsRequired(false);
 
-            builder.Property(artist => artist.WebAddress)
-                .HasColumnName(nameof(Artist.WebAddress))
-                .HasColumnType("nvarchar(256)")
-                .IsRequired(false);
+            builder
+                 .Property(e => e.EndTime)
+                 .HasColumnName(nameof(EventListing.EndTime))
+                 .HasColumnType("datetime2")
+                 .IsRequired(false);
 
             builder
                 .Property(e => e.DateCreated)
@@ -59,7 +68,7 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
                 .HasColumnType("datetime2")
                 .IsRequired(false);
 
-            builder.Property(artist => artist.CreatedByUser)
+            builder.Property(eventListing => eventListing.CreatedByUser)
                 .HasColumnName(nameof(Artist.CreatedByUser))
                 .HasColumnType("nvarchar(256)")
                 .IsRequired();

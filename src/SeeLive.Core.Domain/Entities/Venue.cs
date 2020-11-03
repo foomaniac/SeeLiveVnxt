@@ -11,7 +11,7 @@ namespace SeeLive.Core.Domain.Entities
         public string Bio { get; set; }
         public DateTime DateCreated {get; set;}
         public DateTime? DateModified {get; set;}
-        public DateTime? DateDeleted {get; set;}
+        public DateTime? DateArchived {get; set;}
         public string CreatedByUser {get; set;}
         public string AddressLine1 {get; set;}
         public string AddressLine2 {get; set;}
@@ -20,5 +20,7 @@ namespace SeeLive.Core.Domain.Entities
         public string City {get; set;}
         public string County {get; set;}
         public string Country {get; set;}
+
+        public IEnumerable<EventListing> EventListings { get; set; }
     }
 }

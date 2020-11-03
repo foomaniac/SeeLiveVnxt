@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace SeeLive.Core.Domain
+namespace SeeLive.Core.Domain.Entities
 {
     public class Artist : IEntity<int>
     {
@@ -14,7 +15,9 @@ namespace SeeLive.Core.Domain
         public string WebAddress {get; set;}
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-        public DateTime? DateDeleted { get; set; }
+        public DateTime? DateArchived { get; set; }
         public string CreatedByUser { get; set; }
+
+        public IEnumerable<EventListing> EventListings { get; set; }
     }
 }
