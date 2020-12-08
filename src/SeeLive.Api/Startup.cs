@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using SeeLive.Infrastructure.Persistance.Configurations;
 
 namespace SeeLive.Application.Api
 {
