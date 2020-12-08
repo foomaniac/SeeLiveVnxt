@@ -7,7 +7,6 @@ namespace SeeLive.Infrastructure.Persistance
 {
     public class SeeLiveContext : DbContext
     {
-        public const string DEFAULT_SCHEMA = "Dev";
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Venue> Venues { get; set; }
