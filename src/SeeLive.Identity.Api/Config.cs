@@ -17,7 +17,7 @@ namespace SeeLive.Identity.Api
         public static IEnumerable<ApiScope> ApiScopes =>
                  new ApiScope[]
         {
-            new ApiScope("SeeLive.Application.Api", "SeeLive API")
+            new ApiScope("SeeLive.Api", "SeeLive API")
         };
 
         public static IEnumerable<Client> Clients =>
@@ -29,7 +29,7 @@ namespace SeeLive.Identity.Api
                     ClientSecrets = {
                           new Secret("secret".Sha256())
                     },
-                    AllowedScopes = { "SeeLive.Application.Api"}
+                    AllowedScopes = { "SeeLive.Api"}
                 }
              };
     }

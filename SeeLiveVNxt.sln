@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6E10509-D2C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeLive.Identity.Api", "src\SeeLive.Identity.Api\SeeLive.Identity.Api.csproj", "{9B5E91A7-6E6B-40C3-81A4-A3DD9A0B191B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeLive.Application.Api", "src\SeeLive.Application.Api\SeeLive.Application.Api.csproj", "{84FA9E3C-44A0-4BAD-AC99-6BC669736787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeeLive.Api", "src\SeeLive.Api\SeeLive.Api.csproj", "{84FA9E3C-44A0-4BAD-AC99-6BC669736787}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeLive.Identity.TestClient", "src\SeeLive.Identity.TestClient\SeeLive.Identity.TestClient.csproj", "{E9C555F9-97C4-4422-BD29-12579C5EEAC2}"
 EndProject
