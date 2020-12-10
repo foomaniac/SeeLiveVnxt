@@ -12,6 +12,8 @@ namespace SeeLive.Core.Domain
         public string County { get; private set; }
         public string Country { get; private set; }
 
+        public Address() {  }
+
         public Address(string addressLine1, string postcode, string city, string county, string country)
         {
             AddressLine1 = addressLine1;

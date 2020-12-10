@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using SeeLive.Infrastructure.Persistance.Configurations;
+using SeeLive.Infrastructure;
 
 namespace SeeLive.Application.Api
 {

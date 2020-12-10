@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace SeeLive.Core.Domain.Entities
 {
     public class Artist : Entity
-    {      
+    {
+        public Artist() { }
         public Artist(string name, string bio, string webAddress)
         {
             Name = name;

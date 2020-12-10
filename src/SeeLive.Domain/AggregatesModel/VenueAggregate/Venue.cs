@@ -6,6 +6,8 @@ namespace SeeLive.Core.Domain.Entities
 {
     public class Venue : Entity
     {
+        public Venue() { }
+
         public Venue(string name, string bio, Address address)
         {
             Name = name;

@@ -6,6 +6,7 @@ namespace SeeLive.Core.Domain.Entities
 {
     public class EventListing : Entity
     {
+        public EventListing() { }
         public EventListing(Artist artist,DateTime startTime, DateTime endTime){
             Artist = artist;
             StartTime = startTime;

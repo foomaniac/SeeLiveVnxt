@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Infrastructure.Persistance.Configurations
+namespace SeeLive.Infrastructure.Configurations
 {
     public class VenueConfiguration : IEntityTypeConfiguration<Venue>
     {
@@ -14,7 +14,7 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
         {
             builder.ToTable("Venues", SeeLiveContext.DEFAULT_SCHEMA);
 
-            builder.HasKey(venue => venue.Id);
+            builder.HasKey(venue => venue.Id);            
 
             builder
                 .Property(e => e.Id)
@@ -37,7 +37,8 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
             {
                 a.WithOwner();
             });
-          
+
+
         }
     }
 }

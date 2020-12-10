@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Infrastructure.Persistance.Configurations
+namespace SeeLive.Infrastructure.Configurations
 {
     public class ArtistConfiguration : IEntityTypeConfiguration<Artist>
     {

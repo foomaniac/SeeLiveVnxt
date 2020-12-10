@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Infrastructure.Persistance.Configurations
+namespace SeeLive.Infrastructure
 {
     public static class DependencyInjectionRegister
     {
@@ -13,8 +13,8 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
         {
             @this.AddDbContext<SeeLiveContext, SeeLiveContext>(options =>
             {
-                var connectionString = configuration.GetConnectionString("SeeLiveContext");
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer("name=ConnectionStrings:SeeLiveContext",
+                    x => x.MigrationsAssembly("SeeLive.Infrastructure"));
             });
 
             return @this;

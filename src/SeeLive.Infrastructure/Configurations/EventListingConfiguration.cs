@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Infrastructure.Persistance.Configurations
+namespace SeeLive.Infrastructure.Configurations
 {
     public class EventListingConfiguration : IEntityTypeConfiguration<EventListing>
     {
@@ -29,13 +29,13 @@ namespace SeeLive.Infrastructure.Persistance.Configurations
                  .Property(e => e.StartTime)
                  .HasColumnName(nameof(EventListing.StartTime))
                  .HasColumnType("datetime2")
-                 .IsRequired(false);
+                 .IsRequired();
 
             builder
                  .Property(e => e.EndTime)
                  .HasColumnName(nameof(EventListing.EndTime))
                  .HasColumnType("datetime2")
-                 .IsRequired(false);
+                 .IsRequired();
 
         }
     }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SeeLive.Core.Domain;
 using SeeLive.Core.Domain.Entities;
 
-namespace SeeLive.Infrastructure.Persistance
+namespace SeeLive.Infrastructure
 {
     public class SeeLiveContext : DbContext
     {
@@ -12,6 +12,11 @@ namespace SeeLive.Infrastructure.Persistance
         public DbSet<Event> Events { get; set; }
         public DbSet<Venue> Venues { get; set; }
         public DbSet<EventListing> EventListings { get; set; }
+
+        public SeeLiveContext(DbContextOptions<SeeLiveContext> options) : base(options)
+        {
+
+        }        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
