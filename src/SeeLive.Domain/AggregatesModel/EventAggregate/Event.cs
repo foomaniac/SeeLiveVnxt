@@ -1,10 +1,11 @@
-﻿ using System;
+﻿using SeeLive.Domain.Seedwork;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SeeLive.Core.Domain.Entities
 {
-    public class Event : Entity
+    public class Event : Entity, IAggregateRoot
     {
         public Event() {
             _eventListings = new List<EventListing>();

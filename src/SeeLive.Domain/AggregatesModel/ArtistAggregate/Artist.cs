@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SeeLive.Domain.Seedwork;
+using System;
 using System.Collections.Generic;
 
 namespace SeeLive.Core.Domain.Entities
 {
-    public class Artist : Entity
+    public class Artist : Entity, IAggregateRoot
     {
         public Artist() { }
         public Artist(string name, string bio, string webAddress)
