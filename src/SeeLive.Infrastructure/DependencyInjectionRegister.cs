@@ -13,8 +13,11 @@ namespace SeeLive.Infrastructure
         {
             @this.AddDbContext<SeeLiveContext, SeeLiveContext>(options =>
             {
-                options.UseSqlServer("name=ConnectionStrings:SeeLiveContext",
-                    x => x.MigrationsAssembly("SeeLive.Infrastructure"));
+                var connectionString = configuration.GetConnectionString("SeeLiveContext");
+
+                Console.WriteLine(connectionString);
+
+                options.UseSqlServer(connectionString);                
             });
 
             return @this;

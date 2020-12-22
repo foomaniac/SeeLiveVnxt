@@ -22,5 +22,6 @@ namespace SeeLive.Application.Api
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

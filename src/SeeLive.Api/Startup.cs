@@ -30,14 +30,14 @@ namespace SeeLive.Application.Api
           
             services.AddControllers();
 
-            services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
-           {
-               options.Authority = "https://localhost:5000";
-               options.TokenValidationParameters = new TokenValidationParameters
-               {
-                   ValidateAudience = false
-               };
-           });
+           // services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+           //{
+           //    options.Authority = "https://localhost:5000";
+           //    options.TokenValidationParameters = new TokenValidationParameters
+           //    {
+           //        ValidateAudience = false
+           //    };
+           //});
 
             services.AddAuthorization(options =>
             {
@@ -60,12 +60,12 @@ namespace SeeLive.Application.Api
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers()
-                      .RequireAuthorization("SeeLive.Api");
+                endpoints.MapControllers();
+                      //.RequireAuthorization("SeeLive.Api");
             });
         }
     }
