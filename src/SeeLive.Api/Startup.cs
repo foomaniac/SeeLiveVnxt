@@ -30,6 +30,23 @@ namespace SeeLive.Application.Api
           
             services.AddControllers();
 
+            services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+           {
+               options.Authority = "https://localhost:5000";
+               options.TokenValidationParameters = new TokenValidationParameters
+               {
+                   ValidateAudience = false
+               };
+           });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("SeeLive.Application.Api", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "SeeLive.Application.Api");
+                });
+            });
            // services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
            //{
            //    options.Authority = "https://localhost:5000";

@@ -30,7 +30,7 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_URLS": "http://localhost:5001"
+                "ASPNETCORE_URLS": "https://localhost:6000"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
@@ -68,11 +68,11 @@
     ],
     "compounds": [
         {
-            "name": "SeeLive Identity & Application Apis with TestClient",
+            "name": "SeeLive UI with APIs",
             "configurations": [
                 "SeeLive.Application.Api",
                 "SeeLive.Identity.Api",
-                "SeeLive.Identity.TestClient"
+                "SeeLive.Identity.TestClient",
             ]
         }
     ]
