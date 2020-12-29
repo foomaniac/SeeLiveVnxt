@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SeeLive.Core.Domain
+namespace SeeLive.Domain
 {
   public abstract class Entity
     { 

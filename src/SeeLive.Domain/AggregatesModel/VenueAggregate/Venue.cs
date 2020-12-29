@@ -1,9 +1,10 @@
-﻿using SeeLive.Domain.Seedwork;
+﻿using SeeLive.Core.Domain;
+using SeeLive.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Core.Domain.Entities
+namespace SeeLive.Domain.AggregatesModel.VenueAggregate
 {
     public class Venue : Entity, IAggregateRoot
     {
@@ -15,8 +16,8 @@ namespace SeeLive.Core.Domain.Entities
             Bio = bio;
             Address = address;
         }
-        public string Name {get; private set;}
-        public string Bio {get; private set;}
-        public Address Address {get; private set;}
+        public string Name { get; private set; }
+        public string Bio { get; private set; }
+        public Address Address { get; private set; }
     }
 }

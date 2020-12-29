@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using SeeLive.Core.Domain.Entities;
+using SeeLive.Domain.AggregatesModel.ArtistAggregate;
 using SeeLive.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -12,12 +12,12 @@ namespace SeeLive.Api.Application.Commands
 {
     public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, bool>
     {
-        private SeeLiveContext _context;
-        private ILogger<CreateArtistCommandHandler> _logger;
+        private readonly IArtistRepository _artistRepository;
+        private readonly ILogger<CreateArtistCommandHandler> _logger;
 
-        public CreateArtistCommandHandler(SeeLiveContext context, ILogger<CreateArtistCommandHandler> logger)
+        public CreateArtistCommandHandler(IArtistRepository artistRepository, ILogger<CreateArtistCommandHandler> logger)
         {
-            _context = context;
+            _artistRepository = artistRepository;
             _logger = logger;
         }
 
@@ -28,13 +28,9 @@ namespace SeeLive.Api.Application.Commands
 
             var artist = new Artist(request.Name, request.Bio, request.WebAddress);
 
-            _context.Artists.Add(artist);
-
-            var recordsCreated = await _context.SaveChangesAsync();
-
-            _logger.LogInformation($"Records created {recordsCreated}");
-
-            return recordsCreated > 0;
+            _artistRepository.Add(artist);
+                       
+            return await _artistRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
         }
     }
 }
