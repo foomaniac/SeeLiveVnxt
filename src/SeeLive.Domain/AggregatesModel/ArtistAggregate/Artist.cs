@@ -1,8 +1,9 @@
-﻿using SeeLive.Domain.Seedwork;
+﻿using SeeLive.Core.Domain;
+using SeeLive.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 
-namespace SeeLive.Core.Domain.Entities
+namespace SeeLive.Domain.AggregatesModel.ArtistAggregate
 {
     public class Artist : Entity, IAggregateRoot
     {
