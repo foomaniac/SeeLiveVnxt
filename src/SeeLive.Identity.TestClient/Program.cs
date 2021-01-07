@@ -24,7 +24,7 @@ namespace SeeLive.Identity.TestClient
 
                 ClientId = "SeeLive.Presentation.Web",
                 ClientSecret = "secret",
-                Scope = "SeeLive.Application.Api"
+                Scope = "SeeLive.Api"
             });
 
             if (tokenResponse.IsError)

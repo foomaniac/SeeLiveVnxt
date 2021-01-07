@@ -41,10 +41,10 @@ namespace SeeLive.Application.Api
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("SeeLive.Application.Api", policy =>
+                options.AddPolicy("SeeLive.Api", policy =>
                 {
                     policy.RequireAuthenticatedUser();
-                    policy.RequireClaim("scope", "SeeLive.Application.Api");
+                    policy.RequireClaim("scope", "SeeLive.Api");
                 });
             });
            // services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
