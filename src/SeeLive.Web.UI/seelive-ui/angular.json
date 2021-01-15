@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "seelive-ui"
+  "defaultProject": "seelive-ui",
+  "cli": {
+    "analytics": false
+  }
 }
