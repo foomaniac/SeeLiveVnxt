@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SeeLive.Infrastructure;
+using SeeLive.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +24,7 @@ namespace SeeLive.Api.Controller
         [HttpGet]
         public ActionResult Index()
         {
-            var events = _context.Events.ToList();
-
-            return Ok(events);
+            return Ok(@"[event: {name: 'New Event'}]");
         }
 
         //// GET: EventController/Details/5

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SeeLive.Infrastructure\SeeLive.Infrastructure.csproj" />
+    <ProjectReference Include="..\SeeLive.Domain\SeeLive.Domain.csproj" />
   </ItemGroup>
 
 </Project>

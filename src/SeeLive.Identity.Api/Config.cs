@@ -30,7 +30,22 @@ namespace SeeLive.Identity.Api
                           new Secret("secret".Sha256())
                     },
                     AllowedScopes = { "SeeLive.Api"}
+                },
+                new Client
+                {
+                    ClientId = "seelive-ui",
+                    ClientName = "SeeLive Angular Client",
+                    ClientUri = "http://localhost:4200",
+                    RequireClientSecret = false,
+                    RequireConsent = false,
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    RedirectUris = { "http://localhost:4200" },
+                    PostLogoutRedirectUris = { "http://localhost:4200/" },
+                    AllowedCorsOrigins = { "http://localhost:4200" },
+                    AllowAccessTokensViaBrowser = true,
+                    AccessTokenLifetime = 3600,
+                    AllowedScopes = { "openid", "SeeLive.Api"}
                 }
-             };
+       };
     }
 }
