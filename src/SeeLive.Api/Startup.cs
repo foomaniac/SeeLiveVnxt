@@ -30,40 +30,23 @@ namespace SeeLive.Application.Api
           
             services.AddControllers();
 
-            services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("SeeLive.Api", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "SeeLive.Api");
+                });
+            });
+           services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
            {
-               options.Authority = "https://localhost:5000";
-               options.TokenValidationParameters = new TokenValidationParameters
-               {
-                   ValidateAudience = false
-               };
-           });
-
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("SeeLive.Api", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireClaim("scope", "SeeLive.Api");
-                });
-            });
-           // services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
-           //{
-           //    options.Authority = "https://localhost:5000";
-           //    options.TokenValidationParameters = new TokenValidationParameters
-           //    {
-           //        ValidateAudience = false
-           //    };
-           //});
-
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("SeeLive.Api", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireClaim("scope", "SeeLive.Api");
-                });
-            });
+              options.Authority = "http://localhost:5000";
+              options.TokenValidationParameters = new TokenValidationParameters
+              {
+                  ValidateAudience = false,                  
+              };
+              options.RequireHttpsMetadata = false;
+           });        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,12 +60,12 @@ namespace SeeLive.Application.Api
             app.UseRouting();
 
             app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                      //.RequireAuthorization("SeeLive.Api");
+                endpoints.MapControllers()
+                    .RequireAuthorization("SeeLive.Api");
             });
         }
     }

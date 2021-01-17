@@ -1,14 +1,15 @@
 <p>
   <mat-toolbar color="primary">
-    <section id="app-identity"> 
-     <span>seeLive</span>
+    <section id="app-identity">
+      <span>seeLive</span>
     </section>
-  <span class="toolbar-spacer"></span>
-  <section id="app-login">
-    <div>
-      <button mat-raised-button color="accent">Login</button>
-    </div>
-  </section>
-
+    <span class="toolbar-spacer"></span>
+    <section id="app-login">
+      <div>
+        <button mat-raised-button color="accent" (click)="signout()">
+          Signout
+        </button>
+      </div>
+    </section>
   </mat-toolbar>
 </p>

@@ -9,8 +9,8 @@ namespace SeeLive.Identity.TestClient
     {
         static async System.Threading.Tasks.Task Main(string[] args)
         {
-            var client = new HttpClient();
-            var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5000");
+            var client = new HttpClient();            
+            var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5000");
             if (disco.IsError)
             {
                 Console.WriteLine(disco.Error);
@@ -39,7 +39,7 @@ namespace SeeLive.Identity.TestClient
             var apiClient = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await client.GetAsync("https://localhost:6000/identity");
+            var response = await client.GetAsync("http://localhost:6000/identity");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);

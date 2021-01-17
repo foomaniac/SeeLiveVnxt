@@ -9,7 +9,7 @@ export const environment = {
   redirectUri: 'http://localhost:4200',
   responseType: 'id_token token',
   scope: 'openid SeeLive.Api',
-  seeLiveApi: 'https://localhost:6000/',
+  seeLiveApi: 'https://localhost:6000/events',
 };
 
 /*
