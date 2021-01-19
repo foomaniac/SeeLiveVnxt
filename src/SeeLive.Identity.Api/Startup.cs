@@ -22,7 +22,10 @@ namespace SeeLive.Identity.Api
         {
             services.AddControllersWithViews();
 
-            var builder = services.AddIdentityServer(options =>
+            // Add this
+           services.ConfigureNonBreakingSameSiteCookies();
+            
+           var builder = services.AddIdentityServer(options =>
             {
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
@@ -33,6 +36,8 @@ namespace SeeLive.Identity.Api
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
+
+
         }
 
         public void Configure(IApplicationBuilder app)
@@ -41,6 +46,9 @@ namespace SeeLive.Identity.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+               // Add this before any other middleware that might write cookies
+            app.UseCookiePolicy();
 
             app.UseStaticFiles();
             app.UseRouting();
