@@ -6,11 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace SeeLive.Api.Controller
 {
-    [Route("Events")]
-    [ApiController]
+    [Route("event")]
     public class EventController : ControllerBase
     {
         private readonly SeeLiveContext _context;
@@ -22,9 +22,14 @@ namespace SeeLive.Api.Controller
 
         // GET: EventController
         [HttpGet]
+        [Route("get")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public ActionResult Index()
         {
-            return Ok(@"[event: {name: 'New Event'}]");
+            var eventString = "{\"event\": {\"name\": 'New Event'}}";
+
+            return Ok(eventString);
         }
 
         //// GET: EventController/Details/5

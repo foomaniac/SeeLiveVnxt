@@ -42,7 +42,7 @@ namespace SeeLive.Application.Api
             {
                 options.AddPolicy("SeeLive.Api", policy =>
                 {
-                    policy.RequireAuthenticatedUser();
+                    // policy.RequireAuthenticatedUser();
                     policy.RequireClaim("scope", "SeeLive.Api");
                 });
             });
@@ -83,8 +83,7 @@ namespace SeeLive.Application.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers()
-                    .RequireAuthorization("SeeLive.Api");
+                endpoints.MapControllers();
 
             });
         }

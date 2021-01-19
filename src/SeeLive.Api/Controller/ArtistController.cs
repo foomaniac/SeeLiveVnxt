@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SeeLive.Api.Controller
 {
+    [Route("artist")]
     public class ArtistController : ControllerBase
     {
         private readonly IMediator _mediator;
