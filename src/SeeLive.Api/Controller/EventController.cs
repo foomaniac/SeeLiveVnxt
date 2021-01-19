@@ -13,7 +13,7 @@ namespace SeeLive.Api.Controller
     [ApiController]
     public class EventController : ControllerBase
     {
-        private SeeLiveContext _context;
+        private readonly SeeLiveContext _context;
 
         public EventController(SeeLiveContext context)
         {

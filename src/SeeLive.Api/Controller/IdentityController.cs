@@ -7,11 +7,10 @@ using SeeLive.Infrastructure;
 [Authorize]
 public class IdentityController : ControllerBase
 {
-    private SeeLiveContext _context;
 
-    public IdentityController(SeeLiveContext context)
+    public IdentityController()
     {
-        _context = context;
+ 
     }
 
     [HttpGet]

@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SeeLive.Core.Domain;
-using SeeLive.Core.Domain.Entities;
+using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Domain.AggregatesModel.EventAggregate;
+using SeeLive.Domain.AggregatesModel.VenueAggregate;
+using SeeLive.Domain.Seedwork;
 
 namespace SeeLive.Infrastructure
 {
-    public class SeeLiveContext : DbContext
+    public class SeeLiveContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "dbo";
         public DbSet<Artist> Artists { get; set; }
@@ -27,6 +31,13 @@ namespace SeeLive.Infrastructure
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(SeeLiveContext).Assembly);
             base.OnModelCreating(modelBuilder);
+        }
+
+        public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
+        {
+            var result = await base.SaveChangesAsync(cancellationToken);
+
+            return true;
         }
     }
 }

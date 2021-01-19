@@ -1,13 +1,16 @@
-﻿using SeeLive.Domain.Seedwork;
+﻿using SeeLive.Core.Domain;
+using SeeLive.Domain.AggregatesModel.VenueAggregate;
+using SeeLive.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Core.Domain.Entities
+namespace SeeLive.Domain.AggregatesModel.EventAggregate
 {
     public class Event : Entity, IAggregateRoot
     {
-        public Event() {
+        public Event()
+        {
             _eventListings = new List<EventListing>();
         }
 
@@ -19,10 +22,10 @@ namespace SeeLive.Core.Domain.Entities
             //TODO: Load existing listings
             _eventListings = new List<EventListing>();
         }
-        
-        public string Name {get; private set;}
-        public string Bio {get; private set;}
-        public Venue Venue {get; private set;}
+
+        public string Name { get; private set; }
+        public string Bio { get; private set; }
+        public Venue Venue { get; private set; }
 
         private readonly List<EventListing> _eventListings;
         public IReadOnlyCollection<EventListing> EventLists => _eventListings;
