@@ -64,12 +64,21 @@
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:pickProcess}"
+    },
+    {
+      "name": "seelive-ui",
+      "request": "launch",
+      "runtimeArgs": ["run-script", "start"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "pwa-node",
+      "cwd": "${workspaceFolder}/src/SeeLive.Web.UI/seelive-ui"
     }
   ],
   "compounds": [
     {
       "name": "SeeLive UI with APIs",
-      "configurations": ["SeeLive.Identity.Api", "SeeLive.Api"]
+      "configurations": ["SeeLive.Identity.Api", "SeeLive.Api", "seelive-ui"]
     }
   ]
 }

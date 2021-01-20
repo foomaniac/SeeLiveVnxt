@@ -29,7 +29,7 @@ namespace SeeLive.Api.Controller
         {
             var eventString = "{\"event\": {\"name\": 'New Event'}}";
 
-            return Ok(eventString);
+            return new JsonResult(eventString);
         }
 
         //// GET: EventController/Details/5

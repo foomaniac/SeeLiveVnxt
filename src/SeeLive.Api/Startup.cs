@@ -18,6 +18,7 @@ namespace SeeLive.Application.Api
 {
     public class Startup
     {
+        private const string _seeLiveCorsPolicy = "SeeLiveUI";
         public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
@@ -30,6 +31,8 @@ namespace SeeLive.Application.Api
         public void ConfigureServices(IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
+
+            services.AddCors();
 
             services.AddPersistance(Configuration);
             services.AddMediatR(assembly);           
@@ -78,13 +81,18 @@ namespace SeeLive.Application.Api
 
             app.UseRouting();
 
+            app.UseCors(options => 
+                        options.WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+            );
+
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-
             });
         }
     }
