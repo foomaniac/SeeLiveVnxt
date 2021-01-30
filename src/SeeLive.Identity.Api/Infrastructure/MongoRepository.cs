@@ -21,7 +21,7 @@ public class MongoRepository : IRepository
     public IQueryable<T> Where<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
         => All<T>().Where(expression);
    
-    public void Delete<T>(System.Linq.Expressions.Expression<Func<T, bool> predicate) where T : class, new()
+    public void Delete<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate) where T : class, new()
         => _database.GetCollection<T>(typeof(T).Name).DeleteMany(predicate);
    
     public T Single<T>(System.Linq.Expressions.Expression<Func<T, bool>> expression) where T : class, new()
