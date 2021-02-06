@@ -60,4 +60,3 @@ namespace SeeLive.Identity.Api.Infrastructure
         }
     }
 }
-}
