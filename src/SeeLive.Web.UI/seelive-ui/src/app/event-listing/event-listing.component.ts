@@ -25,9 +25,9 @@ export class EventListingComponent implements OnInit {
   ngOnInit(): void {}
 
   getAllEvents() {
-    this.httpClient.get(environment.seeLiveApi + 'event/get').subscribe(
-      (data) => alert('SUCCESS: ' + JSON.stringify(data)),
-      (error) => alert('ERROR: ' + JSON.stringify(error))
-    );
+    // this.httpClient.get(environment.seeLiveApi + 'event/get').subscribe(
+    //   (data) => alert('SUCCESS: ' + JSON.stringify(data)),
+    //   (error) => alert('ERROR: ' + JSON.stringify(error))
+    // );
   }
 }
