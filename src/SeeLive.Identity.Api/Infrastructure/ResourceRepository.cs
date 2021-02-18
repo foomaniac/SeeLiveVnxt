@@ -22,41 +22,31 @@ namespace SeeLive.Identity.Api.Infrastructure
 
         public Task<ApiResource> FindApiResourceAsync(string name)
             => Task.FromResult(_repository.Single<ApiResource>(a => a.Name == name));
-
-        public Task<IEnumerable<ApiResource>> FindApiResourcesByScopeAsync(IEnumerable<string> scopeNames)
-        {
-            var apis = _repository.All<ApiResource>().ToList();
-            var list = apis.Where<ApiResource>(a => a.Scopes.Any(s => scopeNames.Contains(s.Name))).AsEnumerable();
-            return Task.FromResult(list);
-        }
-
+    
         public Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeAsync(IEnumerable<string> scopeNames)
             => Task.FromResult(_repository.Where<IdentityResource>(e => scopeNames.Contains(e.Name)).AsEnumerable());
 
         public Task<Resources> GetAllResourcesAsync()
-            => Task.FromResult(new Resources(GetAllIdentityResources(), GetAllApiResources()));
+            => Task.FromResult(new Resources(GetAllIdentityResources(), GetAllApiResources(), ));
 
         private Func<IdentityResource, bool> BuildPredicate(Func<IdentityResource, bool> predicate)
             => predicate;
 
-        public Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeNameAsync(IEnumerable<string> scopeNames)
-        {
-            throw new NotImplementedException();
-        }
-
+        public Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeNameAsync(IEnumerable<string> scopeNames)        
+            => Task.FromResult(_repository.Where<IdentityResource>(a => a.Name.Any(s => scopeNames.Contains(a.Name))).AsEnumerable());
+       
         public Task<IEnumerable<ApiScope>> FindApiScopesByNameAsync(IEnumerable<string> scopeNames)
-        {
-            throw new NotImplementedException();
-        }
+         => Task.FromResult(_repository.Where<ApiScope>(a => a.Name.Any(s => scopeNames.Contains(a.Name))).AsEnumerable());
 
         public Task<IEnumerable<ApiResource>> FindApiResourcesByScopeNameAsync(IEnumerable<string> scopeNames)
-        {
-            throw new NotImplementedException();
+        { 
+            var apis = _repository.All<ApiResource>().ToList();
+            var list = apis.Where(a => a.Scopes.Any(s => scopeNames.Contains(a.Name))).AsEnumerable();
+            return Task.FromResult(list);
         }
 
         public Task<IEnumerable<ApiResource>> FindApiResourcesByNameAsync(IEnumerable<string> apiResourceNames)
-        {
-            throw new NotImplementedException();
-        }
+          => Task.FromResult(_repository.Where<ApiResource>(a => a.Name.Any(s => apiResourceNames.Contains(a.Name))).AsEnumerable());
+
     }
 }
