@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Infrastructure.Repositories;
 
 namespace SeeLive.Infrastructure
 {
@@ -19,6 +21,8 @@ namespace SeeLive.Infrastructure
 
                 options.UseSqlServer(connectionString);                
             });
+
+            @this.AddTransient<IArtistRepository, ArtistRepository>();
 
             return @this;
         }
