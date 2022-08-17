@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{1B51B87B-D312-41D3-8DC5-3AD93EC41491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeeLive.Gateway.Api", "src\SeeLive.Gateway.Api\SeeLive.Gateway.Api.csproj", "{F18E7173-1D00-46C3-8ED0-EE7D67D5508C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeeLive.Web.Gateway.Api", "src\SeeLive.Gateway.Api\SeeLive.Web.Gateway.Api.csproj", "{F18E7173-1D00-46C3-8ED0-EE7D67D5508C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
