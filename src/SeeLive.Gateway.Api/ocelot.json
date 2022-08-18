@@ -1,5 +1,17 @@
 ﻿{
-  "Routes": [],
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/artists/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44396
+        }
+      ],
+      "UpstreamPathTemplate": "/gw/artists/{id}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    }],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:49153"
   }

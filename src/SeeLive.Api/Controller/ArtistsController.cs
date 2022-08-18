@@ -7,24 +7,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using SeeLive.Domain.AggregatesModel.ArtistAggregate;
 
 namespace SeeLive.Api.Controller
 {
-    public class ArtistController : ControllerBase
+    [Route("artists")]
+    [Produces("application/json")]
+    public class ArtistsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        private readonly ILogger<ArtistController> _logger;
+        private readonly ILogger<ArtistsController> _logger;
 
-        public ArtistController(IMediator mediator, ILogger<ArtistController> logger)
+        public ArtistsController(IMediator mediator, ILogger<ArtistsController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
 
 
+        [HttpPost]
         [Route("create")]
-        [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<bool>> CreateArtist([FromBody]CreateArtistCommand createArtistCommand)
@@ -33,12 +36,21 @@ namespace SeeLive.Api.Controller
 
             var result = await _mediator.Send(createArtistCommand);
 
-            if (!result)
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetArtist(int id)
+        {
+            if (id == default)
             {
-                return BadRequest();
+                return BadRequest(id);
             }
 
-            return Ok(result);
+            return Ok(new Artist("Sample Artist", "Amazing Artist", ""));
         }
     }
 }
