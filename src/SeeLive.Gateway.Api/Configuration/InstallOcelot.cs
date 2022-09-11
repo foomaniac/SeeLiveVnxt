@@ -5,9 +5,9 @@ namespace SeeLive.Gateway.Api.Configuration
 {
     public static class InstallOcelot
     {
-        public static void AddOcelotService(this IServiceCollection services)
+        public static void AddOcelotService(this IServiceCollection services, ConfigurationManager configuration)
         {
-            services.AddOcelot();
+            services.AddOcelot(configuration);
         }
 
         public static void AddOcelotMiddleware(this WebApplication app)
