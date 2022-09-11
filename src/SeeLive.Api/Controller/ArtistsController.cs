@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SeeLive.Api.Application.Commands;
 using System.Net;
 using System.Threading.Tasks;
+using SeeLive.Domain.Features.Artists;
 using SeeLive.Domain.Models;
 
 
@@ -32,9 +32,9 @@ namespace SeeLive.Api.Controller
         {
             _logger.LogInformation($"--Create Artist called - Name: {createArtistCommand.Name}, WebAddress: {createArtistCommand.WebAddress}");
 
-            var result = await _mediator.Send(createArtistCommand);
+            Artist artist = await _mediator.Send(createArtistCommand);
 
-            return Ok(result);
+            return CreatedAtAction(nameof(GetArtist),new {id = artist.Id}, artist);
         }
 
         [HttpGet]
@@ -48,7 +48,14 @@ namespace SeeLive.Api.Controller
                 return BadRequest(id);
             }
 
-            return Ok(new Artist("Sample Artist", "Amazing Artist", ""));
+            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
+
+            if (artist == null)
+            {
+                return NotFound(id);
+            }
+
+            return  Ok(artist);
         }
     }
 }

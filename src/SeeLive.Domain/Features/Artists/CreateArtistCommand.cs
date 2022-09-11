@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using SeeLive.Domain.Models;
 
-namespace SeeLive.Api.Application.Commands
+namespace SeeLive.Domain.Features.Artists
 {
-    public class CreateArtistCommand : IRequest<bool>
+    public class CreateArtistCommand : IRequest<Artist>
     {
         public string Name { get; private set; }
         public string Bio { get; private set; }

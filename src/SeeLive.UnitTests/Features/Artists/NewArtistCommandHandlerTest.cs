@@ -1,24 +1,20 @@
-using MediatR;
 using Microsoft.Extensions.Logging;
 using Moq;
-using SeeLive.Api.Application.Commands;
 using SeeLive.Domain.Features.Artists;
 using SeeLive.Domain.Models;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SeeLive.UnitTests
+namespace SeeLive.Api.UnitTests.Features.Artists
 {
     public class NewArtistCommandHandlerTest
     {
-
         private readonly Mock<IArtistRepository> _artistRepositoryMock;
-    
+
         public NewArtistCommandHandlerTest()
         {
-            _artistRepositoryMock = new Mock<IArtistRepository>();    
+            _artistRepositoryMock = new Mock<IArtistRepository>();
         }
 
         [Fact]

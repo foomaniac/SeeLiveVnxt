@@ -1,13 +1,12 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using SeeLive.Domain.Features.Artists;
 using System.Threading;
 using System.Threading.Tasks;
 using SeeLive.Domain.Models;
 
-namespace SeeLive.Api.Application.Commands
+namespace SeeLive.Domain.Features.Artists
 {
-    public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, bool>
+    public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, Artist>
     {
         private readonly IArtistRepository _artistRepository;
         private readonly ILogger<CreateArtistCommandHandler> _logger;
@@ -19,15 +18,17 @@ namespace SeeLive.Api.Application.Commands
         }
 
 
-        public async Task<bool> Handle(CreateArtistCommand request, CancellationToken cancellationToken)
+        public async Task<Artist> Handle(CreateArtistCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"Call to create artist with name {request.Name}");
 
-            var artist = new Artist(request.Name, request.Bio, request.WebAddress);
+            Artist artist = new Artist(request.Name, request.Bio, request.WebAddress);
 
             _artistRepository.Add(artist);
-                       
-            return await _artistRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
+
+            await _artistRepository.UnitOfWork.SaveEntitiesAsync(cancellationToken);
+
+            return artist;
         }
     }
 }

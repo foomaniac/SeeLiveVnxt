@@ -11,7 +11,20 @@
       ],
       "UpstreamPathTemplate": "/artists/{id}",
       "UpstreamHttpMethod": [ "GET" ]
-    }],
+    },
+    {
+      "DownstreamPathTemplate": "/artists/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/artists/",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+  ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:7124"
   }
