@@ -1,7 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SeeLive.Infrastructure;
 
 [Route("identity")]
 [Authorize]

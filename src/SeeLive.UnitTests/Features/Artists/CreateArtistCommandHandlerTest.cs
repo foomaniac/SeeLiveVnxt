@@ -1,27 +1,24 @@
-using MediatR;
 using Microsoft.Extensions.Logging;
 using Moq;
-using SeeLive.Api.Application.Commands;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
-using System;
+using SeeLive.Domain.Features.Artists;
+using SeeLive.Domain.Models;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SeeLive.UnitTests
+namespace SeeLive.Api.UnitTests.Features.Artists
 {
-    public class NewArtistCommandHandlerTest
+    public class CreateArtistCommandHandlerTest
     {
-
         private readonly Mock<IArtistRepository> _artistRepositoryMock;
-    
-        public NewArtistCommandHandlerTest()
+
+        public CreateArtistCommandHandlerTest()
         {
-            _artistRepositoryMock = new Mock<IArtistRepository>();    
+            _artistRepositoryMock = new Mock<IArtistRepository>();
         }
 
         [Fact]
-        public async Task Handle_return_true_if_artist_createdAsync()
+        public async Task handler_returns_valid_artist_when_create_artist_called_createdAsync()
         {
             //Arrange
             var fakeArtistCmd = FakeArtistRequest();
@@ -37,7 +34,7 @@ namespace SeeLive.UnitTests
             var result = await handler.Handle(fakeArtistCmd, cancellationToken);
 
             //Assert
-            Assert.True(result);
+            Assert.Equivalent(FakeArtist(),result);
         }
 
         private static CreateArtistCommand FakeArtistRequest()

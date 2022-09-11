@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Core.Domain;
-using SeeLive.Domain.AggregatesModel.VenueAggregate;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SeeLive.Domain.Models;
 
 namespace SeeLive.Infrastructure.Configurations
 {

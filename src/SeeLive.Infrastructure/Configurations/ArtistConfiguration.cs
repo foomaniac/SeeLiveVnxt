@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SeeLive.Domain.Models;
 
 namespace SeeLive.Infrastructure.Configurations
 {

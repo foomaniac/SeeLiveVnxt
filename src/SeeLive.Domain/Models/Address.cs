@@ -1,8 +1,8 @@
 ﻿
 using System.Collections.Generic;
-using SeeLive.Core.Domain.Seedwork;
+using SeeLive.Domain.Seedwork;
 
-namespace SeeLive.Core.Domain
+namespace SeeLive.Domain.Models
 {
     public class Address : ValueObject
     {
@@ -12,7 +12,7 @@ namespace SeeLive.Core.Domain
         public string County { get; private set; }
         public string Country { get; private set; }
 
-        public Address() {  }
+        public Address() { }
 
         public Address(string addressLine1, string postcode, string city, string county, string country)
         {
@@ -20,7 +20,7 @@ namespace SeeLive.Core.Domain
             PostCode = postcode;
             City = city;
             County = county;
-            Country = country;   
+            Country = country;
         }
         protected override IEnumerable<object> GetEqualityComponents()
         {

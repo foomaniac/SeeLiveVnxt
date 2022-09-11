@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SeeLive.Core.Domain.Seedwork
+namespace SeeLive.Domain.Seedwork
 {
     public abstract class ValueObject
     {
