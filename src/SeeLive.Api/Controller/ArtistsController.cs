@@ -2,12 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SeeLive.Api.Application.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Domain.Models;
+
 
 namespace SeeLive.Api.Controller
 {

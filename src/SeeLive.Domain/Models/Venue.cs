@@ -1,11 +1,8 @@
 ﻿using SeeLive.Domain.Seedwork;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SeeLive.Domain.Models
 {
-    public class Venue : Entity, IAggregateRoot
+    public class Venue : Entity
     {
         public Venue() { }
 

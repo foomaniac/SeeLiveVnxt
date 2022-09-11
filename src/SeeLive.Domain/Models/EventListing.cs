@@ -1,4 +1,5 @@
 ﻿using System;
+using SeeLive.Domain.Seedwork;
 
 namespace SeeLive.Domain.Models
 {

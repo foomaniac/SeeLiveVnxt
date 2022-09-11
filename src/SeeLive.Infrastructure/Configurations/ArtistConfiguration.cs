@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SeeLive.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SeeLive.Infrastructure.Configurations
 {

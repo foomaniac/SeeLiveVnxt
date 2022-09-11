@@ -1,12 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using SeeLive.Domain.Features.Artists;
-using SeeLive.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using SeeLive.Domain.Models;
 
 namespace SeeLive.Api.Application.Commands
 {

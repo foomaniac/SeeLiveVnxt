@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-using SeeLive.Core.Domain.Seedwork;
+using SeeLive.Domain.Seedwork;
 
 namespace SeeLive.Domain.Models
 {

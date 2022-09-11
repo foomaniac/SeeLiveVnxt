@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Domain.Features.Artists;
 using SeeLive.Infrastructure.Repositories;
 
 namespace SeeLive.Infrastructure
