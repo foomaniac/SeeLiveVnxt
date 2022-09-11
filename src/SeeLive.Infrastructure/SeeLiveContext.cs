@@ -35,7 +35,7 @@ namespace SeeLive.Infrastructure
         {
             var result = await base.SaveChangesAsync(cancellationToken);
 
-            return true;
+            return result > 0;
         }
     }
 }
