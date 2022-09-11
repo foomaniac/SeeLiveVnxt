@@ -2,9 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
-using SeeLive.Domain.AggregatesModel.EventAggregate;
-using SeeLive.Domain.AggregatesModel.VenueAggregate;
+using SeeLive.Domain.Models;
 using SeeLive.Domain.Seedwork;
 
 namespace SeeLive.Infrastructure

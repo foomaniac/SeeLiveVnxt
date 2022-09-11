@@ -1,8 +1,6 @@
-﻿
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
-using System;
+﻿using System;
 
-namespace SeeLive.Domain.AggregatesModel.EventAggregate
+namespace SeeLive.Domain.Models
 {
     public class EventListing : Entity
     {

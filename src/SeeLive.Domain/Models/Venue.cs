@@ -1,10 +1,9 @@
-﻿using SeeLive.Core.Domain;
-using SeeLive.Domain.Seedwork;
+﻿using SeeLive.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeeLive.Domain.AggregatesModel.VenueAggregate
+namespace SeeLive.Domain.Models
 {
     public class Venue : Entity, IAggregateRoot
     {

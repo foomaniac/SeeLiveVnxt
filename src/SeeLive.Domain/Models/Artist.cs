@@ -3,7 +3,7 @@ using SeeLive.Domain.Seedwork;
 using System;
 using System.Collections.Generic;
 
-namespace SeeLive.Domain.AggregatesModel.ArtistAggregate
+namespace SeeLive.Domain.Models
 {
     public class Artist : Entity, IAggregateRoot
     {
@@ -14,8 +14,8 @@ namespace SeeLive.Domain.AggregatesModel.ArtistAggregate
             Bio = bio;
             WebAddress = webAddress;
         }
-        public string Name {get; private set;}
-        public string Bio {get; private set;}
-        public string WebAddress {get; private set;}
+        public string Name { get; private set; }
+        public string Bio { get; private set; }
+        public string WebAddress { get; private set; }
     }
 }

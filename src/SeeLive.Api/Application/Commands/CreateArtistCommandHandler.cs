@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Domain.Features.Artists;
 using SeeLive.Infrastructure;
 using System;
 using System.Collections.Generic;

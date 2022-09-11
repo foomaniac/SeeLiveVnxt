@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeeLive.Domain.AggregatesModel.ArtistAggregate;
+using SeeLive.Domain.Features.Artists;
+using SeeLive.Domain.Models;
 using SeeLive.Domain.Seedwork;
 using System;
 using System.Threading.Tasks;

@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SeeLive.Core.Domain;
-using SeeLive.Domain.AggregatesModel.EventAggregate;
-using SeeLive.Domain.AggregatesModel.VenueAggregate;
+using SeeLive.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
