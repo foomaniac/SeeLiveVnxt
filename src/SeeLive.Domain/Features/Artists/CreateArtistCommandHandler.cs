@@ -20,7 +20,7 @@ namespace SeeLive.Domain.Features.Artists
 
         public async Task<Artist> Handle(CreateArtistCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"Call to create artist with name {request.Name}");
+            _logger.LogInformation("Call to create artist with name {0}", request.Name);
 
             Artist artist = new Artist(request.Name, request.Bio, request.WebAddress);
 

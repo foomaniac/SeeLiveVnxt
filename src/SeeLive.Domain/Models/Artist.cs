@@ -2,9 +2,17 @@
 
 namespace SeeLive.Domain.Models
 {
-    public class Artist : Entity
+    public sealed class Artist : Entity
     {
         public Artist() { }
+        public Artist(int id, string name, string bio, string webAddress)
+        {
+            Id = id;
+            Name = name;
+            Bio = bio;
+            WebAddress = webAddress;
+        }
+
         public Artist(string name, string bio, string webAddress)
         {
             Name = name;
