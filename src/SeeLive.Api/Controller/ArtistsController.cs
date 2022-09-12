@@ -14,7 +14,6 @@ namespace SeeLive.Api.Controller
     public class ArtistsController : ControllerBase
     {
         private readonly IMediator _mediator;
-
         private readonly ILogger<ArtistsController> _logger;
 
         public ArtistsController(IMediator mediator, ILogger<ArtistsController> logger)
@@ -27,7 +26,6 @@ namespace SeeLive.Api.Controller
         [HttpPost]
         [Route("create")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<bool>> CreateArtist([FromBody]CreateArtistCommand createArtistCommand)
         {
             _logger.LogInformation($"--Create Artist called - Name: {createArtistCommand.Name}, WebAddress: {createArtistCommand.WebAddress}");
@@ -41,6 +39,7 @@ namespace SeeLive.Api.Controller
         [Route("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> GetArtist(int id)
         {
             if (id == default)
@@ -49,7 +48,6 @@ namespace SeeLive.Api.Controller
             }
 
             Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
-
             if (artist == null)
             {
                 return NotFound(id);
