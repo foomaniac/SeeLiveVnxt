@@ -6,11 +6,11 @@ namespace SeeLive.Api.Controller
 {
     [Route("Events")]
     [ApiController]
-    public class EventController : ControllerBase
+    public class EventsController : ControllerBase
     {
         private readonly SeeLiveContext _context;
 
-        public EventController(SeeLiveContext context)
+        public EventsController(SeeLiveContext context)
         {
             _context = context;
         }
