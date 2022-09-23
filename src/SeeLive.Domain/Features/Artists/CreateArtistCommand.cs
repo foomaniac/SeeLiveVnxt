@@ -1,5 +1,4 @@
-﻿using MediatR;
-using SeeLive.Domain.Models;
+﻿using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Features.Artists
 {

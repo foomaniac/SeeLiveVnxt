@@ -1,7 +1,6 @@
 ﻿using System;
-using SeeLive.Domain.Seedwork;
 
-namespace SeeLive.Domain.Models
+namespace SeeLive.Domain.Entities
 {
     public class EventListing : Entity
     {

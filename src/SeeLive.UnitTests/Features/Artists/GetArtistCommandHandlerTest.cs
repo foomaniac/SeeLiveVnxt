@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Logging;
 using Moq;
 using SeeLive.Domain.Features.Artists;
-using SeeLive.Domain.Models;
 using System.Threading;
 using System.Threading.Tasks;
+using SeeLive.Domain.Entities;
 using Xunit;
 
 namespace SeeLive.Api.UnitTests.Features.Artists

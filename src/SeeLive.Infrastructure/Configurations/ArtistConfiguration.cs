@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.Models;
+using SeeLive.Domain.Entities;
 
-namespace SeeLive.Infrastructure.Configurations
+namespace SeeLive.Domain.Configurations
 {
     public class ArtistConfiguration : IEntityTypeConfiguration<Artist>
     {
@@ -14,7 +14,7 @@ namespace SeeLive.Infrastructure.Configurations
 
             builder
                 .Property(artist => artist.Id)
-                .HasColumnName(nameof(Artist.Id))
+                
                 .HasColumnType("int")
                 .IsRequired();
 

@@ -1,14 +1,11 @@
-﻿using SeeLive.Domain.Models;
-using SeeLive.Domain.Seedwork;
-using System.Threading.Tasks;
+﻿using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Features.Artists
 {
-    public interface IArtistRepository : IRepository<Artist>
+    public interface IArtistsRepository : IRepository<Artist>
     {
         Artist Add(Artist artist);
-        void Update(Artist artist);
-
         Task<Artist> GetAsync(int artistId);
+        void Update(Artist artist);
     }
 }

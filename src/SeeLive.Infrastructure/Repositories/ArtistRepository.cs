@@ -1,22 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeeLive.Domain.Features.Artists;
-using SeeLive.Domain.Models;
-using SeeLive.Domain.Seedwork;
 using System;
 using System.Threading.Tasks;
+using SeeLive.Domain;
+using SeeLive.Domain.Entities;
 
 namespace SeeLive.Infrastructure.Repositories
 {
-    public class ArtistRepository : IArtistRepository
+    public class ArtistRepository : IArtistsRepository
     {
         private readonly SeeLiveContext _context;
-        public IUnitOfWork UnitOfWork
-        {
-            get
-            {
-                return _context;
-            }
-        }
+        public IUnitOfWork UnitOfWork => _context;
 
         public ArtistRepository(SeeLiveContext context)
         {

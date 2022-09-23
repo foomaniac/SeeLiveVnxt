@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
 using Microsoft.Extensions.Logging;
-using SeeLive.Domain.Models;
+using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Features.Artists
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.Models;
+using SeeLive.Domain.Entities;
 
-namespace SeeLive.Infrastructure.Configurations
+namespace SeeLive.Domain.Configurations
 {
     public class EventListingConfiguration : IEntityTypeConfiguration<EventListing>
     {

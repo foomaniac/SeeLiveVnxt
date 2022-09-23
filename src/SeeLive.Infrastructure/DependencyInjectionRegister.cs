@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using SeeLive.Domain.Features.Artists;
 using SeeLive.Infrastructure.Repositories;
 
 namespace SeeLive.Infrastructure

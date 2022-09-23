@@ -1,7 +1,6 @@
-﻿using SeeLive.Domain.Seedwork;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace SeeLive.Domain.Models
+namespace SeeLive.Domain.Entities
 {
     public class Event : Entity
     {

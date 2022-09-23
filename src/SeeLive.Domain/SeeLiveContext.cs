@@ -1,18 +1,11 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using SeeLive.Domain.Models;
-using SeeLive.Domain.Seedwork;
+﻿using Microsoft.EntityFrameworkCore;
+using SeeLive.Domain.Entities;
 
-namespace SeeLive.Infrastructure
+namespace SeeLive.Domain
 {
     public class SeeLiveContext : DbContext, IUnitOfWork
     {
         public const string DEFAULT_SCHEMA = "dbo";
-        public DbSet<Artist> Artists { get; set; }
-        public DbSet<Event> Events { get; set; }
-        public DbSet<Venue> Venues { get; set; }
-        public DbSet<EventListing> EventListings { get; set; }
 
         public SeeLiveContext(DbContextOptions<SeeLiveContext> options) : base(options)
         {
@@ -36,5 +29,10 @@ namespace SeeLive.Infrastructure
 
             return result > 0;
         }
+
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Venue> Venues { get; set; }
+        public DbSet<EventListing> EventListings { get; set; }
     }
 }

@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Threading.Tasks;
+using SeeLive.Domain.Entities;
 using SeeLive.Domain.Features.Artists;
-using SeeLive.Domain.Models;
 
 
 namespace SeeLive.Api.Controller
@@ -47,7 +47,7 @@ namespace SeeLive.Api.Controller
                 return BadRequest(id);
             }
 
-            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
+            Artist artist = await _mediator.Send(new GetEventCommand() { ArtistId = id });
             if (artist == null)
             {
                 return NotFound(id);

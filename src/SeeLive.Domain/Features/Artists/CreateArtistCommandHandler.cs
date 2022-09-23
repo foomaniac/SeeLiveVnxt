@@ -1,8 +1,6 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using System.Threading;
+﻿using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
-using SeeLive.Domain.Models;
+using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Features.Artists
 {
