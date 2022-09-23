@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SeeLive.Infrastructure;
 using System.Linq;
+using SeeLive.Domain;
 
 namespace SeeLive.Api.Controller
 {

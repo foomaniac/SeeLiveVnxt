@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using SeeLive.Domain.Entities;
 using SeeLive.Domain.Features.Artists;
 
-
 namespace SeeLive.Api.Controller
 {
     [Route("artists")]
@@ -47,7 +46,7 @@ namespace SeeLive.Api.Controller
                 return BadRequest(id);
             }
 
-            Artist artist = await _mediator.Send(new GetEventCommand() { ArtistId = id });
+            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
             if (artist == null)
             {
                 return NotFound(id);

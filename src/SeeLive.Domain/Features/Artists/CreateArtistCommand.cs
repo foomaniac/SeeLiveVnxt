@@ -1,6 +1,4 @@
-﻿using SeeLive.Domain.Entities;
-
-namespace SeeLive.Domain.Features.Artists
+﻿namespace SeeLive.Domain.Features.Artists
 {
     public class CreateArtistCommand : IRequest<Artist>
     {

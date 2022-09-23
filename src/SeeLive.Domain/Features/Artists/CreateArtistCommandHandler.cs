@@ -1,15 +1,13 @@
-﻿using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using SeeLive.Domain.Entities;
+﻿using System.Threading.Tasks;
 
 namespace SeeLive.Domain.Features.Artists
 {
     public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, Artist>
     {
-        private readonly IArtistRepository _artistRepository;
+        private readonly IArtistsRepository _artistRepository;
         private readonly ILogger<CreateArtistCommandHandler> _logger;
 
-        public CreateArtistCommandHandler(IArtistRepository artistRepository, ILogger<CreateArtistCommandHandler> logger)
+        public CreateArtistCommandHandler(IArtistsRepository artistRepository, ILogger<CreateArtistCommandHandler> logger)
         {
             _artistRepository = artistRepository;
             _logger = logger;

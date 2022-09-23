@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Configurations
 {
@@ -8,24 +7,18 @@ namespace SeeLive.Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<Artist> builder)
         {
-
-            builder.ToTable("Artists").HasKey(artist => artist.Id);
-
-            builder.Property(artist => artist.Id)
-                .HasColumnType("int")
+            builder
+                .Property(artist => artist.Id)
                 .IsRequired();
 
             builder.Property(artist => artist.Name)
-                .HasColumnName(nameof(Artist.Name))
-                .HasColumnType("nvarchar(256)");
+                .IsRequired();
 
             builder.Property(artist => artist.Bio)
-                .HasColumnName(nameof(Artist.Bio))
-                .HasColumnType("nvarchar(max)");
+                .IsRequired(false);
 
             builder.Property(artist => artist.WebAddress)
-                .HasColumnName(nameof(Artist.WebAddress))
-                .HasColumnType("nvarchar(256)");
+                .IsRequired(false);
 
         }
     }

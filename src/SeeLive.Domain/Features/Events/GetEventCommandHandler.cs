@@ -1,15 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
-using SeeLive.Domain.Entities;
-using SeeLive.Domain.Features.Events;
-
-namespace SeeLive.Domain.Features.Artists
+﻿namespace SeeLive.Domain.Features.Events
 {
     public class GetEventCommandHandler : IRequestHandler<GetEventCommand,Event>
     {
         private readonly IEventsRepository _eventsRepository;
-        private readonly ILogger<GetArtistCommandHandler> _logger;
+        private readonly ILogger<GetEventCommandHandler> _logger;
 
-        public GetEventCommandHandler(IEventsRepository eventsRepository, ILogger<GetArtistCommandHandler> logger)
+        public GetEventCommandHandler(IEventsRepository eventsRepository, ILogger<GetEventCommandHandler> logger)
         {
             _eventsRepository = eventsRepository;
             _logger = logger;
@@ -17,7 +13,7 @@ namespace SeeLive.Domain.Features.Artists
 
         public async Task<Event> Handle(GetEventCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Call to get artist with id {0}", request.EventId);
+            _logger.LogInformation("Call to get event with id {0}", request.EventId);
             return await _eventsRepository.GetAsync(request.EventId);
         }
     }

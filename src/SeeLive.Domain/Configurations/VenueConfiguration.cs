@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.Entities;
 
 namespace SeeLive.Domain.Configurations
 {
@@ -8,20 +7,22 @@ namespace SeeLive.Domain.Configurations
     {
         public void Configure(EntityTypeBuilder<Venue> builder)
         {
-            builder.ToTable("Venues").HasKey(venue => venue.Id);
-
             builder
                 .Property(e => e.Id)
-                .HasColumnName(nameof(Venue.Id))
-                .HasColumnType("int");
+                .IsRequired();
 
             builder.Property(venue => venue.Name)
-                .HasColumnName(nameof(Venue.Name))
-                .HasColumnType("nvarchar(256)");
+                .IsRequired();
 
             builder.Property(venue => venue.Bio)
-                .HasColumnName(nameof(Venue.Bio))
-                .HasColumnType("nvarchar(max)");
+                .IsRequired(false);
+
+            //Address value object persisted as owned entity type supported since EF Core 2.0
+            builder.OwnsOne(o => o.Address, a =>
+            {
+                a.WithOwner();
+            });
+
 
         }
     }

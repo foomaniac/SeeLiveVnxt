@@ -10,11 +10,11 @@ namespace SeeLive.Api.UnitTests.Features.Artists
 {
     public class GetArtistCommandHandlerTest
     {
-        private readonly Mock<IArtistRepository> _artistRepositoryMock;
+        private readonly Mock<IArtistsRepository> _artistRepositoryMock;
 
         public GetArtistCommandHandlerTest()
         {
-            _artistRepositoryMock = new Mock<IArtistRepository>();
+            _artistRepositoryMock = new Mock<IArtistsRepository>();
         }
 
         [Fact]
