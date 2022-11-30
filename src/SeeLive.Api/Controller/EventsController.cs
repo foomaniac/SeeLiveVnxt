@@ -14,8 +14,6 @@ namespace SeeLive.Api.Controller
         {
             _context = context;
         }
-
-        // GET: EventController
         [HttpGet]
         public ActionResult Index()
         {

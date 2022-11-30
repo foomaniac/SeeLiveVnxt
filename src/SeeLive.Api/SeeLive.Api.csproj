@@ -21,4 +21,8 @@
     <ProjectReference Include="..\SeeLive.Infrastructure\SeeLive.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SeeLive.Domain.Entities
 {
@@ -20,6 +21,7 @@ namespace SeeLive.Domain.Entities
 
         public string Name { get; private set; }
         public string Bio { get; private set; }
+        public DateTime EventDateTime { get; private set; }
         public Venue Venue { get; private set; }
 
         private readonly List<EventListing> _eventListings;

@@ -4,8 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using SeeLive.Abstractions;
 using SeeLive.Domain;
+using SeeLive.Domain.Features.Events;
 using SeeLive.Infrastructure.Configurations;
 using SeeLive.Infrastructure.Repositories;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace SeeLive.Infrastructure
 {
@@ -17,13 +19,11 @@ namespace SeeLive.Infrastructure
             @this.AddDbContext<SeeLiveContext, SeeLiveContext>(options =>
             {
                 var connectionString = configuration.GetConnectionString("SeeLiveContext");
-
-                Console.WriteLine(connectionString);
-
-                options.UseSqlServer(connectionString);                
+                options.UseSqlServer(connectionString, b => b.MigrationsAssembly("SeeLive.Infrastructure"));                
             });
 
             @this.AddTransient<IArtistsRepository, ArtistRepository>();
+            @this.AddTransient<IEventsRepository, EventsRepository>();
 
             return @this;
         }

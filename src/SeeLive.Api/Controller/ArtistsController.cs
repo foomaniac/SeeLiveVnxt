@@ -8,8 +8,8 @@ using SeeLive.Domain.Features.Artists;
 
 namespace SeeLive.Api.Controller
 {
-    [Route("artists")]
-    [Produces("application/json")]
+    [Route("[controller]")]
+    [ApiController]
     public class ArtistsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -25,6 +25,7 @@ namespace SeeLive.Api.Controller
         [HttpPost]
         [Route("create")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public async Task<ActionResult<bool>> CreateArtist([FromBody]CreateArtistCommand createArtistCommand)
         {
             _logger.LogInformation($"--Create Artist called - Name: {createArtistCommand.Name}, WebAddress: {createArtistCommand.WebAddress}");
@@ -34,23 +35,20 @@ namespace SeeLive.Api.Controller
             return CreatedAtAction(nameof(GetArtist),new {id = artist.Id}, artist);
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{artistId}")]
+
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<IActionResult> GetArtist(int id)
+        public async Task<ActionResult<Artist>> GetArtist(int artistId)
         {
-            if (id == default)
-            {
-                return BadRequest(id);
-            }
+            _logger.LogInformation("--Request to get Artist for id {0}",artistId);
 
-            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
-            if (artist == null)
-            {
-                return NotFound(id);
-            }
+            if (artistId == default) return BadRequest(artistId);
+
+            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = artistId });
+            
+            if (artist == null) return NotFound(artistId);
 
             return  Ok(artist);
         }
