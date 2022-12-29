@@ -23,6 +23,8 @@ namespace SeeLive.Domain.Configurations
                 .HasColumnName(nameof(Venue.Bio))
                 .HasColumnType("nvarchar(max)");
 
+            builder.OwnsOne(venue => venue.Address);
+
         }
     }
 }

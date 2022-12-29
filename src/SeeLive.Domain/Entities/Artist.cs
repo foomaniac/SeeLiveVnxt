@@ -1,5 +1,7 @@
-﻿namespace SeeLive.Domain.Entities
-{
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace SeeLive.Domain.Entities
+{    
     public sealed class Artist : Entity
     {
         public Artist() { }

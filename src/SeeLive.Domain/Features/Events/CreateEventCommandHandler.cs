@@ -16,11 +16,9 @@ namespace SeeLive.Domain.Features.Events
 
         public async Task<Event> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Call to create artist with name {0}", request.Name);
+            _logger.LogInformation("Call to create event with name {0}", request.Name);
 
-            Venue venue = new Venue();
-             
-            Event newEvent = new Event(request.Name, request.Bio, venue);
+            Event newEvent = new Event(request.Name, request.Bio);
 
             _eventsRepository.Add(newEvent);
 

@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SeeLive.Domain.Entities;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SeeLive.Domain
 {
     public class SeeLiveContext : DbContext, IUnitOfWork
     {
-        private readonly IModelConfiguration modelConfiguration;
-        public SeeLiveContext(DbContextOptions<SeeLiveContext> options, IModelConfiguration modelConfiguration) : base(options)
-        {
-            this.modelConfiguration = modelConfiguration;
+        public SeeLiveContext(DbContextOptions<SeeLiveContext> options) : base(options)
+        { 
         }
+  
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SeeLiveContext).Assembly);
-            modelConfiguration.ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SeeLiveContext).Assembly);            
         }
 
         public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
