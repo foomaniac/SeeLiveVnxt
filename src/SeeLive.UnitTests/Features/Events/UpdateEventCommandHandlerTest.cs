@@ -19,12 +19,13 @@ namespace SeeLive.Api.UnitTests.Features.Events
     {
 
         SeeLiveInMemoryFixture _fixture;
-        IEventsRepository _eventsRepository;        
-
+        IEventsRepository _eventsRepository;
+        IVenuesRepository _venuesRepository;
         public UpdateEventCommandHandlerTest(SeeLiveInMemoryFixture fixture)
         {
             _fixture = fixture;
             _eventsRepository = new EventsRepository(_fixture.SeeLiveContext);            
+            _venuesRepository = new VenuesRepository(_fixture.SeeLiveContext);
        }
 
         [Fact]
@@ -34,7 +35,7 @@ namespace SeeLive.Api.UnitTests.Features.Events
             var createEventloggerMock = new Mock<ILogger<CreateEventCommandHandler>>();
             var createNewEventHandler = new CreateEventCommandHandler(_eventsRepository, createEventloggerMock.Object);
             var updateEventloggerMock = new Mock<ILogger<UpdateEventCommandHandler>>();
-            var updateEventHandler = new UpdateEventCommandHandler(_eventsRepository, updateEventloggerMock.Object);            
+            var updateEventHandler = new UpdateEventCommandHandler(_eventsRepository, _venuesRepository, updateEventloggerMock.Object);            
             var newEventCommand = new CreateEventCommand("Test Event", "Event Testing");
             var updateEventCommand = new UpdateEventCommand(default, "Updated Event", "Updated Testing Event", null);
             var cancellationToken = new CancellationToken();
