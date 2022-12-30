@@ -1,4 +1,4 @@
-﻿namespace SeeLive.Domain.Entities
+﻿namespace SeeLive.Domain.Features.Venues
 {
     public class Venue : Entity
     {

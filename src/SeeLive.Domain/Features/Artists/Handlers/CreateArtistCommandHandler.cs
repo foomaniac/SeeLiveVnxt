@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
+using SeeLive.Domain.Features.Artists.Commands;
+using SeeLive.Domain.Features.Artists.Interfaces;
 
-namespace SeeLive.Domain.Features.Artists
+namespace SeeLive.Domain.Features.Artists.Handlers
 {
     public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, Artist>
     {

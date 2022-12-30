@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeeLive.Domain.Entities;
+using SeeLive.Domain.Features.Venues;
 
 namespace SeeLive.Domain.Configurations
 {

@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Threading.Tasks;
-using SeeLive.Domain.Entities;
 using SeeLive.Domain.Features.Artists;
+using SeeLive.Domain.Features.Artists.Commands;
 
 namespace SeeLive.Api.Controller
 {

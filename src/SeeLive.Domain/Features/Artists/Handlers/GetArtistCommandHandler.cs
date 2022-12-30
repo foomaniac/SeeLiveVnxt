@@ -1,6 +1,9 @@
-﻿namespace SeeLive.Domain.Features.Artists
+﻿using SeeLive.Domain.Features.Artists.Commands;
+using SeeLive.Domain.Features.Artists.Interfaces;
+
+namespace SeeLive.Domain.Features.Artists.Handlers
 {
-    public class GetArtistCommandHandler : IRequestHandler<GetArtistCommand,Artist>
+    public class GetArtistCommandHandler : IRequestHandler<GetArtistCommand, Artist>
     {
         private readonly IArtistsRepository _artistRepository;
         private readonly ILogger<GetArtistCommandHandler> _logger;

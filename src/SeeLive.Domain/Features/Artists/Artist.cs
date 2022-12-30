@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace SeeLive.Domain.Entities
-{    
+namespace SeeLive.Domain.Features.Artists
+{
     public sealed class Artist : Entity
     {
         public Artist() { }
@@ -19,6 +19,7 @@ namespace SeeLive.Domain.Entities
             Bio = bio;
             WebAddress = webAddress;
         }
+
         public string Name { get; private set; }
         public string Bio { get; private set; }
         public string WebAddress { get; private set; }

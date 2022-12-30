@@ -8,6 +8,9 @@ using Xunit;
 using SeeLive.Api.UnitTests.Fixtures;
 using SeeLive.Domain.Features.Events;
 using SeeLive.Infrastructure.Repositories;
+using SeeLive.Domain.Features.Events.Interfaces;
+using SeeLive.Domain.Features.Events.Handlers;
+using SeeLive.Domain.Features.Events.Commands;
 
 namespace SeeLive.Api.UnitTests.Features.Events
 {

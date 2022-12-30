@@ -1,4 +1,4 @@
-﻿namespace SeeLive.Domain.Features.Events
+﻿namespace SeeLive.Domain.Features.Events.Interfaces
 {
     public interface IEventsRepository : IRepository<Event>
     {

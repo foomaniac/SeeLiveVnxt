@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SeeLive.Domain.Features.Venues;
 
-namespace SeeLive.Domain.Entities
+namespace SeeLive.Domain.Features.Events
 {
     public class Event : Entity
     {
@@ -13,7 +14,7 @@ namespace SeeLive.Domain.Entities
         public Event(string name, string bio)
         {
             Name = name;
-            Bio = bio;                        
+            Bio = bio;
         }
 
         public string Name { get; private set; }
@@ -26,9 +27,13 @@ namespace SeeLive.Domain.Entities
             Venue = venue;
         }
 
-        public void UpdateEventDescription(string name, string bio)
+        public void UpdateName(string name)
         {
             Name = name;
+        }
+
+        public void UpdateBio(string bio)
+        {
             Bio = bio;
         }
 

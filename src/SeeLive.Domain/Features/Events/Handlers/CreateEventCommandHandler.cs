@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using SeeLive.Domain.Features.Events.Commands;
+using SeeLive.Domain.Features.Events.Interfaces;
 
-namespace SeeLive.Domain.Features.Events
+namespace SeeLive.Domain.Features.Events.Handlers
 {
     public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Event>
     {

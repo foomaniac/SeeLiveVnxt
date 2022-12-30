@@ -1,6 +1,7 @@
 ﻿using System;
+using SeeLive.Domain.Features.Artists;
 
-namespace SeeLive.Domain.Entities
+namespace SeeLive.Domain.Features.Events
 {
     public class EventListing : Entity
     {

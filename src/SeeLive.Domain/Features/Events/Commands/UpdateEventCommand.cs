@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SeeLive.Domain.Features.Events
+namespace SeeLive.Domain.Features.Events.Commands
 {
     public class UpdateEventCommand : IRequest<Event>
     {

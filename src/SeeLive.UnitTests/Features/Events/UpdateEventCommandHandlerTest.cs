@@ -3,13 +3,15 @@ using Moq;
 using SeeLive.Domain.Features.Artists;
 using System.Threading;
 using System.Threading.Tasks;
-using SeeLive.Domain.Entities;
 using Xunit;
 using SeeLive.Api.UnitTests.Fixtures;
 using SeeLive.Domain.Features.Events;
 using SeeLive.Infrastructure.Repositories;
 using Microsoft.VisualBasic;
 using System.Data.Common;
+using SeeLive.Domain.Features.Events.Interfaces;
+using SeeLive.Domain.Features.Events.Handlers;
+using SeeLive.Domain.Features.Events.Commands;
 
 namespace SeeLive.Api.UnitTests.Features.Events
 {

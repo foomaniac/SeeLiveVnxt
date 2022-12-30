@@ -2,7 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SeeLive.Domain;
-using SeeLive.Domain.Features.Events;
+using SeeLive.Domain.Features.Artists.Interfaces;
+using SeeLive.Domain.Features.Events.Interfaces;
 using SeeLive.Infrastructure.Repositories;
 
 namespace SeeLive.Infrastructure

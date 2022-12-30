@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeeLive.Domain.Entities;
+using SeeLive.Domain.Features.Events;
+using SeeLive.Domain.Features.Venues;
 using System.Threading;
 using System.Threading.Tasks;
 

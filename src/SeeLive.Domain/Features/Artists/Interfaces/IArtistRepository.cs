@@ -1,4 +1,4 @@
-﻿namespace SeeLive.Domain.Features.Artists
+﻿namespace SeeLive.Domain.Features.Artists.Interfaces
 {
     public interface IArtistsRepository : IRepository<Artist>
     {

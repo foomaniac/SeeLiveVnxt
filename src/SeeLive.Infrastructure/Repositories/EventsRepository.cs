@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using SeeLive.Domain;
-using SeeLive.Domain.Entities;
+using SeeLive.Domain.Features.Events.Interfaces;
 using SeeLive.Domain.Features.Events;
 
 namespace SeeLive.Infrastructure.Repositories
