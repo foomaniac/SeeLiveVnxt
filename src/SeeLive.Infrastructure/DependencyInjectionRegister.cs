@@ -20,6 +20,7 @@ namespace SeeLive.Infrastructure
 
             @this.AddTransient<IArtistsRepository, ArtistRepository>();
             @this.AddTransient<IEventsRepository, EventsRepository>();
+            @this.AddTransient<IVenuesRepository, VenuesRepository>();
 
             return @this;
         }

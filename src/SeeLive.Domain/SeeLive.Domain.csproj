@@ -14,7 +14,6 @@
   <ItemGroup>
     <Folder Include="Features\Venues\Commands\" />
     <Folder Include="Features\Venues\Handlers\" />
-    <Folder Include="Features\Venues\Interfaces\" />
   </ItemGroup>
 
 </Project>

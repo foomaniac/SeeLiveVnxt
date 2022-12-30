@@ -19,12 +19,12 @@ namespace SeeLive.Api.UnitTests.Features.Events
     {
 
         SeeLiveInMemoryFixture _fixture;
-        IEventsRepository _eventsRepository;
+        IEventsRepository _eventsRepository;        
 
         public UpdateEventCommandHandlerTest(SeeLiveInMemoryFixture fixture)
         {
             _fixture = fixture;
-            _eventsRepository = new EventsRepository(_fixture.SeeLiveContext);
+            _eventsRepository = new EventsRepository(_fixture.SeeLiveContext);            
        }
 
         [Fact]
