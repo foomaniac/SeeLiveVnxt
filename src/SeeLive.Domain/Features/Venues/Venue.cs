@@ -1,6 +1,4 @@
-﻿using SeeLive.Domain.Seedwork;
-
-namespace SeeLive.Domain.Models
+﻿namespace SeeLive.Domain.Features.Venues
 {
     public class Venue : Entity
     {

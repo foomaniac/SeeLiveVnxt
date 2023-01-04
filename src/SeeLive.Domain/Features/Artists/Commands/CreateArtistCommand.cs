@@ -1,7 +1,4 @@
-﻿using MediatR;
-using SeeLive.Domain.Models;
-
-namespace SeeLive.Domain.Features.Artists
+﻿namespace SeeLive.Domain.Features.Artists.Commands
 {
     public class CreateArtistCommand : IRequest<Artist>
     {

@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using SeeLive.Domain.Features.Artists;
+using SeeLive.Domain;
+using SeeLive.Domain.Features.Artists.Interfaces;
+using SeeLive.Domain.Features.Events.Interfaces;
 using SeeLive.Infrastructure.Repositories;
 
 namespace SeeLive.Infrastructure
@@ -10,17 +11,16 @@ namespace SeeLive.Infrastructure
     public static class DependencyInjectionRegister
     {
         public static IServiceCollection AddPersistance(this IServiceCollection @this, IConfiguration configuration)
-        {
+        {            
             @this.AddDbContext<SeeLiveContext, SeeLiveContext>(options =>
             {
                 var connectionString = configuration.GetConnectionString("SeeLiveContext");
-
-                Console.WriteLine(connectionString);
-
-                options.UseSqlServer(connectionString);                
+                options.UseSqlServer(connectionString, b => b.MigrationsAssembly("SeeLive.Infrastructure"));                
             });
 
-            @this.AddTransient<IArtistRepository, ArtistRepository>();
+            @this.AddTransient<IArtistsRepository, ArtistRepository>();
+            @this.AddTransient<IEventsRepository, EventsRepository>();
+            @this.AddTransient<IVenuesRepository, VenuesRepository>();
 
             return @this;
         }

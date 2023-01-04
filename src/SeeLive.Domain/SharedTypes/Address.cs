@@ -1,8 +1,6 @@
-﻿
-using System.Collections.Generic;
-using SeeLive.Domain.Seedwork;
+﻿using System.Collections.Generic;
 
-namespace SeeLive.Domain.Models
+namespace SeeLive.Domain.Entities
 {
     public class Address : ValueObject
     {

@@ -1,16 +1,7 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Threading.Tasks;
-using SeeLive.Domain.Features.Artists;
-using SeeLive.Domain.Models;
-
-
-namespace SeeLive.Api.Controller
+﻿namespace SeeLive.Api.Controller
 {
-    [Route("artists")]
-    [Produces("application/json")]
+    [ApiController]
+    [Route("[controller]")]
     public class ArtistsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -26,32 +17,30 @@ namespace SeeLive.Api.Controller
         [HttpPost]
         [Route("create")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public async Task<ActionResult<bool>> CreateArtist([FromBody]CreateArtistCommand createArtistCommand)
         {
             _logger.LogInformation($"--Create Artist called - Name: {createArtistCommand.Name}, WebAddress: {createArtistCommand.WebAddress}");
 
             Artist artist = await _mediator.Send(createArtistCommand);
 
-            return CreatedAtAction(nameof(GetArtist),new {id = artist.Id}, artist);
+            return CreatedAtAction(nameof(Get), new {artistId = artist.Id}, artist);
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{artistId}")]
+
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<IActionResult> GetArtist(int id)
+        public async Task<ActionResult<Artist>> Get(int artistId)
         {
-            if (id == default)
-            {
-                return BadRequest(id);
-            }
+            _logger.LogInformation("--Request to get Artist for id {0}",artistId);
 
-            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = id });
-            if (artist == null)
-            {
-                return NotFound(id);
-            }
+            if (artistId == default) return BadRequest(artistId);
+
+            Artist artist = await _mediator.Send(new GetArtistCommand() { ArtistId = artistId });
+            
+            if (artist == null) return NotFound(artistId);
 
             return  Ok(artist);
         }

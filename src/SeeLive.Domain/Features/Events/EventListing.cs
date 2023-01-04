@@ -1,7 +1,7 @@
 ﻿using System;
-using SeeLive.Domain.Seedwork;
+using SeeLive.Domain.Features.Artists;
 
-namespace SeeLive.Domain.Models
+namespace SeeLive.Domain.Features.Events
 {
     public class EventListing : Entity
     {

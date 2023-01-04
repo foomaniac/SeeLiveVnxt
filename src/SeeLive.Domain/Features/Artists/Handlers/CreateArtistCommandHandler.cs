@@ -1,17 +1,15 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using System.Threading;
-using System.Threading.Tasks;
-using SeeLive.Domain.Models;
+﻿using System.Threading.Tasks;
+using SeeLive.Domain.Features.Artists.Commands;
+using SeeLive.Domain.Features.Artists.Interfaces;
 
-namespace SeeLive.Domain.Features.Artists
+namespace SeeLive.Domain.Features.Artists.Handlers
 {
     public class CreateArtistCommandHandler : IRequestHandler<CreateArtistCommand, Artist>
     {
-        private readonly IArtistRepository _artistRepository;
+        private readonly IArtistsRepository _artistRepository;
         private readonly ILogger<CreateArtistCommandHandler> _logger;
 
-        public CreateArtistCommandHandler(IArtistRepository artistRepository, ILogger<CreateArtistCommandHandler> logger)
+        public CreateArtistCommandHandler(IArtistsRepository artistRepository, ILogger<CreateArtistCommandHandler> logger)
         {
             _artistRepository = artistRepository;
             _logger = logger;

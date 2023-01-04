@@ -1,96 +1,48 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SeeLive.Infrastructure;
-using System.Linq;
-
-namespace SeeLive.Api.Controller
+﻿namespace SeeLive.Api.Controller
 {
-    [Route("Events")]
+    [Route("[controller]")]
     [ApiController]
     public class EventsController : ControllerBase
     {
-        private readonly SeeLiveContext _context;
+        private readonly IMediator _mediator;
+        private readonly ILogger<EventsController> _logger;
 
-        public EventsController(SeeLiveContext context)
+        public EventsController(IMediator mediator, ILogger<EventsController> logger)
         {
-            _context = context;
+            _mediator = mediator;
+            _logger = logger;
         }
 
-        // GET: EventController
-        [HttpGet]
-        public ActionResult Index()
-        {
-            var events = _context.Events.ToList();
 
-            return Ok(events);
+        [HttpPost]
+        [Route("create")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        public async Task<ActionResult<bool>> CreateEvent([FromBody] CreateEventCommand createEventCommand)
+        {
+            _logger.LogInformation($"--Create Event called - Name: {createEventCommand.Name}");
+
+            Event newEvent = await _mediator.Send(createEventCommand);
+
+            return CreatedAtAction(nameof(Get), new { eventId = newEvent.Id }, newEvent);
         }
 
-        //// GET: EventController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+        [HttpGet("{eventId}")]
 
-        //// GET: EventController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        public async Task<ActionResult<Event>> Get(int eventId)
+        {
+            _logger.LogInformation("--Request to get Event for id {0}", eventId);
 
-        //// POST: EventController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            if (eventId == default) return BadRequest(eventId);
 
-        //// GET: EventController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
+            Event existingEvent = await _mediator.Send(new GetEventQuery() { EventId = eventId});
 
-        //// POST: EventController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            if (existingEvent == null) return NotFound(eventId);
 
-        //// GET: EventController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: EventController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+            return Ok(existingEvent);
+        }
     }
 }
