@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SeeLive.Domain;
 using System;
+using SeeLive.Domain.Entities;
+using SeeLive.Domain.Features.Venues;
 
 namespace SeeLive.Api.UnitTests.Fixtures
 {
@@ -19,6 +21,14 @@ namespace SeeLive.Api.UnitTests.Fixtures
             SeeLiveContext.Database.EnsureCreated();
 
         }
+
+        public async void SeedUpdateEventTestData()
+        {
+            Venue testVenue = new Venue("Update Test Venue","Test Venue",new Address("","","","",""));
+            await SeeLiveContext.Venues.AddAsync(testVenue);
+            await SeeLiveContext.SaveEntitiesAsync();
+        }
+
         public void Dispose()
         {
             SeeLiveContext.Dispose();

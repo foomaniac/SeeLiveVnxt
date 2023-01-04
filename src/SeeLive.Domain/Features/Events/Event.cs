@@ -6,6 +6,8 @@ namespace SeeLive.Domain.Features.Events
 {
     public class Event : Entity
     {
+        private readonly List<EventListing> _eventListings;
+
         public Event()
         {
             _eventListings = new List<EventListing>();
@@ -37,7 +39,11 @@ namespace SeeLive.Domain.Features.Events
             Bio = bio;
         }
 
-        private readonly List<EventListing> _eventListings;
+        public void UpdateEventDateTime(DateTime eventDateTime)
+        {
+            EventDateTime = eventDateTime;
+        }
+
         public IReadOnlyCollection<EventListing> EventLists => _eventListings;
     }
 }
