@@ -1,15 +1,7 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Threading.Tasks;
-using SeeLive.Domain.Features.Artists;
-using SeeLive.Domain.Features.Artists.Commands;
-
-namespace SeeLive.Api.Controller
+﻿namespace SeeLive.Api.Controller
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ArtistsController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -32,7 +24,7 @@ namespace SeeLive.Api.Controller
 
             Artist artist = await _mediator.Send(createArtistCommand);
 
-            return CreatedAtAction(nameof(GetArtist),new {id = artist.Id}, artist);
+            return CreatedAtAction(nameof(Get), new {artistId = artist.Id}, artist);
         }
 
         [HttpGet("{artistId}")]
@@ -40,7 +32,7 @@ namespace SeeLive.Api.Controller
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<ActionResult<Artist>> GetArtist(int artistId)
+        public async Task<ActionResult<Artist>> Get(int artistId)
         {
             _logger.LogInformation("--Request to get Artist for id {0}",artistId);
 
